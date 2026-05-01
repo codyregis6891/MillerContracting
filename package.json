@@ -1,0 +1,10 @@
+{
+  "name": "miller-custom-works-draft",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static first draft site for Miller Custom Works.",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "check": "python3 scripts/check_site.py"
+  }
+}
