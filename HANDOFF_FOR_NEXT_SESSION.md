@@ -1,226 +1,140 @@
 # Handoff for Next Terminal Session
 
 Date prepared: 2026-05-01
-Prepared for: Cody opening a new terminal/Hermes session on the PC
+Prepared for: Cody opening a new terminal/Hermes session
 Primary repo: `/home/codyregis/projects/glass-water/MillerContracting`
 Umbrella project: Glass Water Digital
 
-## Read this first
+## Current status
 
-This project is under the Glass Water Digital umbrella even though the repo sits beside the main Glass Water repo. It is a real proof/client-style project for Cody's father-in-law, Mark Miller, and should be treated as part of Cody's operator/business pipeline, not as a random separate website.
+Miller Custom Works is a dependency-free static contractor/reference site under the Glass Water umbrella. It is now a polished review artifact for Mark Miller, not a launch-ready public business site.
 
-The strategic value is bigger than “make Mark a website.” This is a chance to build a strong contractor/trades reference asset using real proof, real photos, and Glass Water's emerging offer shape: handmade sites, visibility, trust, and eventually workflow/lead handling where useful.
-
-## What exists now
-
-Repo:
+Latest local validation before commit/push:
 
 ```bash
-/home/codyregis/projects/glass-water/MillerContracting
+python3 scripts/check_site.py
+# OK: checked 3 HTML files and local asset references
+
+git diff --check
+# passed
 ```
 
-Remote:
-
-```text
-git@github.com:codyregis6891/MillerContracting.git
-```
-
-Branch/status at handoff:
-
-```text
-main...origin/main
-clean before this handoff file/AGENTS addition
-```
-
-Recent commits:
-
-```text
-dac354e feat: build first Miller Custom Works draft
-b009b4b Initial commit
-```
-
-Current draft files:
-
-```text
-index.html
-projects/index.html
-projects/custom-wood-counters/index.html
-assets/css/styles.css
-assets/js/site.js
-assets/images/*.jpg
-scripts/check_site.py
-README.md
-docs/design-direction.md
-AGENTS.md
-HANDOFF_FOR_NEXT_SESSION.md
-```
-
-The current site is a dependency-free static draft. That is intentional. Do not convert it to Next.js, add a CMS, or add a form backend unless Cody explicitly asks after reviewing direction with Mark.
-
-## What was built
-
-A first-draft site for Miller Custom Works with:
-
-1. Homepage
-   - Hero
-   - craft/service lanes
-   - featured work
-   - craft/process section
-   - project spotlight
-   - About Mark section
-   - contact CTA with placeholder contact info
-
-2. Projects index
-   - curated proof wall by project/service category
-   - not a dump of all 70 images
-
-3. First project detail page
-   - `projects/custom-wood-counters/index.html`
-   - intentionally included even though current photos/facts are provisional
-   - designed to make Mark react and send better project details/photos
-
-4. Design rationale
-   - `docs/design-direction.md`
-   - explains why the site is craft-first, not Kentucky-themed, and why the first draft uses imperfect but real photos
-
-5. Validation
-   - `scripts/check_site.py`
-   - run with `python3 scripts/check_site.py`
-
-## Why it is positioned this way
-
-The 70-photo intake did not look like a generic handyman portfolio. It showed a finish-carpentry and woodworking center of gravity:
-
-- custom wood counters
-- custom tables
-- cabinetry
-- built-ins
-- fireplace/mantel work
-- barn doors
-- shop/process work
-- fences, decks, and exterior carpentry as range, not necessarily the main identity
-- bathroom/kitchen updates as supporting services
-
-Current positioning spine:
-
-> Custom home improvements built with third-generation craftsmanship.
-
-Supporting idea:
-
-> Miller Custom Works handles kitchens, built-ins, woodwork, finish details, and home improvement projects where the finished result matters.
-
-Keep this plain-spoken. Do not make Mark sound like a luxury interiors firm, a generic handyman, or a corporate contractor.
-
-## Critical guardrails
-
-- This is under Glass Water Digital's umbrella.
-- Use real photos/proof only.
-- No stock images.
-- No AI-generated visuals.
-- No Kentucky theme.
-- No state outlines, bourbon/horse/bluegrass motifs, or bright Kentucky blue as a brand concept.
-- Do not make it flag-heavy or patriotic by default. The flag display case can be a subtle proof/story asset, not the whole brand.
-- Do not invent license, insurance, bonded status, phone, email, testimonials, or project facts.
-- Do not create a bloated app before Mark confirms basic facts.
-- Do not hide the provisional nature of weak photos in internal notes. The draft is meant to prompt better originals.
-
-## Related Glass Water context
-
-Main Glass Water repo:
-
-```bash
-/home/codyregis/projects/glass-water/glass-water-digital
-```
-
-Current Glass Water status at handoff:
-
-```text
-## develop...origin/develop
- M sub-plans/father-in-law-discovery-notes.md
-?? .local-intake/
-```
-
-Important source/reference files in Glass Water repo:
-
-```text
-/home/codyregis/projects/glass-water/glass-water-digital/sub-plans/father-in-law-discovery-notes.md
-/home/codyregis/projects/glass-water/glass-water-digital/.local-intake/miller-custom-works/photo-triage.md
-/home/codyregis/projects/glass-water/glass-water-digital/.local-intake/miller-custom-works/contact-sheets/
-```
-
-Photo triage summary:
-
-- 70 images received/found from Facebook intake
-- strongest visual direction is custom woodwork, counters, kitchens, built-ins, and finish details
-- `mcw-68` is the strongest Mark/process photo
-- `mcw-05`, `mcw-20`, `mcw-26`, `mcw-34`, `mcw-45`, `mcw-50`, `mcw-57`, `mcw-58`, `mcw-59`, `mcw-65`, `mcw-69` are among strongest top-tier candidates
-
-The local intake folder should stay local unless Cody explicitly decides to commit specific assets. The Miller repo already contains selected, renamed images for the draft.
-
-## Commands for the new session
-
-Start here:
+Local preview command:
 
 ```bash
 cd /home/codyregis/projects/glass-water/MillerContracting
-git status --short --branch
-python3 scripts/check_site.py
-```
-
-Preview locally:
-
-```bash
 python3 -m http.server 4173
+# open http://127.0.0.1:4173/
 ```
 
-Open:
+## What changed in the latest design session
+
+The homepage is now a desktop slide-deck experience with a normal mobile fallback.
+
+Desktop slides:
+
+1. Hero
+   - Uses the old business-card heritage language.
+   - Uses the sink/counter photo on the right.
+   - CTAs float over the photo, with no inner caption card.
+   - Logo/nav are transparent and integrated.
+
+2. Services
+   - Cinematic service-lane slide, not generic service cards.
+   - Uses three imported real/work-reference photos:
+     - `assets/images/lumber-truck-load.jpg`
+     - `assets/images/kitchen-island-builtins-blurry.jpg`
+     - `assets/images/rustic-barn-door-interior.jpg`
+   - Gridline background was moved here from Section 4 and made visible but still subtle.
+
+3. Work
+   - Interactive fireplace/project-story slide.
+   - Uses imported fireplace/home-improvement photos.
+   - Tiles start collapsed.
+   - Clicking a tile expands it with a cinematic image-backed treatment.
+   - Expanded state no longer overlaps and no longer looks like a card inside a card.
+
+4. Craft / selling logic
+   - Reworked as an expressive full-photo shop-background slide.
+   - Uses Mark standing behind a large wood surface:
+     - `assets/images/mark-standing-behind-work.jpg`
+   - Restored the copy Cody explicitly wanted to keep:
+     - “How the site should sell him”
+     - “Not fast and flashy. Measured, fitted, finished.”
+     - the three principles: Look close, Range without scatter, Make Mark real
+   - Before/after proof strip added at the bottom with object-fit containment so photos are less cropped:
+     - `assets/images/living-room-before.jpg`
+     - `assets/images/living-room-after.jpg`
+     - `assets/images/kitchen-remodel-before.jpg`
+     - `assets/images/kitchen-remodel-after.jpg`
+   - The giant “STANDS BEHIND IT” background text was removed.
+   - The grid background was moved to Section 2.
+
+5. Gallery / About / Contact
+   - Still present as later review slides.
+   - Contact info remains placeholder until Mark confirms phone/email/service area.
+
+6. Browser tab icon
+   - Added transparent SVG favicon:
+     - `assets/images/favicon.svg`
+   - Uses the site’s cream/gold mark colors with no black square background.
+
+## Files materially changed
 
 ```text
-http://127.0.0.1:4173/
+index.html
+assets/css/styles.css
+assets/js/site.js
+projects/index.html
+projects/custom-wood-counters/index.html
+docs/mark-review-checklist.md
+assets/images/favicon.svg
+assets/images/lumber-truck-load.jpg
+assets/images/kitchen-island-builtins-blurry.jpg
+assets/images/rustic-barn-door-interior.jpg
+assets/images/fireplace-before-hearth.jpg
+assets/images/fireplace-feature-home-improvement.jpg
+assets/images/fireplace-finished-detail.jpg
+assets/images/fireplace-project-start.jpg
+assets/images/fireplace-room-after.jpg
+assets/images/mark-standing-behind-work.jpg
+assets/images/living-room-before.jpg
+assets/images/living-room-after.jpg
+assets/images/kitchen-remodel-before.jpg
+assets/images/kitchen-remodel-after.jpg
 ```
 
-If another process is already on 4173, use another port:
+## Guardrails
 
-```bash
-python3 -m http.server 4174
-```
+- Use real proof/photos only.
+- No stock photos.
+- No AI-generated visuals.
+- No Kentucky-themed branding.
+- No backend/forms/CMS/deployment changes unless Cody explicitly asks.
+- Do not invent phone, email, license, insurance, bonded status, testimonials, or project details.
+- Keep placeholder/review copy where it helps Mark react and give facts.
+- Mobile was previously considered good; desktop/laptop slide fit was the main tuning area.
+
+## Current known caveat
+
+`assets/css/styles.css` has grown large because it captures many iterative design overrides. It works and validates, but if this becomes a real production client pattern, the next cleanup should consolidate the final Section 2/3/4 rules and remove stale earlier overrides.
+
+Do not clean the CSS before Cody/Mark review unless asked. The design feedback loop matters more right now than code neatness.
 
 ## Recommended next move
 
-Candid operator recommendation: do not spend the morning making it prettier in the abstract. The draft is already doing the strategic job. The highest-leverage next move is to review it like a client artifact and prepare Mark's feedback loop.
+Candid operator recommendation: stop polishing after this commit unless Cody sees an obvious bug. The artifact is now strong enough to show Mark for reaction.
 
-Do this next:
+Next highest-leverage move:
 
-1. Browser-check homepage, projects page, and custom counters detail page.
-2. Make sure mobile is readable enough to show without embarrassment.
-3. Create or send Cody/Mark a short review checklist:
-   - Does Miller Custom Works feel like the right name?
-   - Is third-generation craftsmanship accurate and okay to feature?
-   - Which services should be emphasized?
-   - Which services should be avoided?
-   - Calls, texts, form, or all three?
-   - What phone/email should be used?
-   - Is he licensed/insured/bonded, and what exact wording is allowed?
-   - Which current photos should be replaced with better originals?
-   - Which projects deserve full pages?
-4. Only after that, replace weak photos and firm up copy.
+1. Send Mark the draft locally or via a deployed preview.
+2. Use `docs/mark-review-checklist.md` to collect facts.
+3. Ask for better original photos for the strongest projects.
+4. Confirm business name, phone/email, service area, and license/insurance wording.
+5. Then decide whether to deploy a public version or keep refining the proof/story pages.
 
-## If Cody asks you to continue building
+## Glass Water operator read
 
-Best next build order:
+This project is valuable for Glass Water because it proves Cody can make a handmade, photo-led small-business website from imperfect real assets. It supports the handmade website lane without diluting the broader Glass Water visibility and automation positioning.
 
-1. Fix obvious mobile or link issues found in browser QA.
-2. Make placeholder contact/status language cleaner, without inventing facts.
-3. Add an internal review notes section or small `docs/mark-review-checklist.md`.
-4. Expand project detail templates only after Mark identifies real projects and sends better info.
-5. Decide deployment after the content direction is accepted.
-
-## Business/VP read
-
-This is exactly the kind of project Glass Water Digital needs: concrete, local, proof-heavy, and useful. It can become a reference for Cody's handmade website lane without diluting the automation story. The right frame is:
-
-- visibility gets people to trust you enough to look
-- the site makes the proof undeniable
-- workflow/automation can come later around leads, estimates, follow-up, review requests, and project intake
-
-Do not pitch automation first for Mark. Earn trust with the site and the proof, then identify useful operational fixes only after the lead/contact flow is real.
+Do not pitch automation first for Mark. Earn trust with the site and proof. Later automation opportunities might be intake, follow-up, review requests, and project/photo collection.
