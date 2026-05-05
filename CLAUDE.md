@@ -51,6 +51,15 @@ Take the same practical, proof-first stance Hermes would take here: keep the dra
   - what is still local-only
   - what the next agent should read first
 
+### After every `git push`
+
+A push is not "done" until the state docs catch up with it. Immediately after every successful `git push` from this repo, update **all** of the following that are affected, before reporting the push complete to Cody:
+
+1. `../_handoffs/2026-05-01-new-terminal-handoff.md` — bump the `origin/main` SHA in the Miller Custom Works status block and add a dated subsection describing what shipped, what was verified, and what was not. Always touch this file on every push, even small ones.
+2. This repo's own `HANDOFF_FOR_NEXT_SESSION.md` and any design-direction or status doc the push affects.
+
+See the umbrella `../CLAUDE.md` "Handoff discipline" section for the canonical rule.
+
 ## Validation
 
 For this static draft, the default validation is:
