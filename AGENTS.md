@@ -18,9 +18,10 @@ Do not treat this as an unrelated hobby repo. Treat it as a Glass Water Digital 
 - Service area: Central Kentucky, used as practical service context only
 - Project type: static first-draft contractor website
 - Repo reused: old GitHub repo `codyregis6891/MillerContracting`
-- Current branch: `main`
+- Default branch: `develop` (working). `main` is the stable / production-cut branch.
+- Production deploy: Vercel Hobby (free tier) under Cody's account, deploying from `develop`.
 - Current draft is intentionally proof-first and built from real intake photos, not stock or AI visuals
-- Existing first-draft commit: `dac354e feat: build first Miller Custom Works draft`
+- Latest commit (origin/develop = origin/main): `b5eeef6 docs: refresh handoff for the homepage rewrite + mobile redesign`
 
 The draft should help Mark react, correct facts, and send better photos. It does not need to pretend all content is final.
 
