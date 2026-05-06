@@ -4,7 +4,7 @@ Date prepared: 2026-05-06
 Prepared for: Cody opening a new terminal/Hermes session
 Primary repo: `/home/codyregis/projects/glass-water/MillerContracting`
 Umbrella project: Glass Water Digital
-Current SHA: `b5eeef6` (origin/develop = origin/main; develop branch created this session)
+Current SHA: origin/main `f52875d`, origin/develop `f54267c` (develop ahead of main by one doc-only commit refreshing `mark-review-checklist.md` and `docs/design-direction.md`)
 Default branch (working): **`develop`**. **Production branch: `main`** — Vercel deploys from there. Standard Git-Flow convention.
 GitHub repo default-branch flip from `main` → `develop` is a one-click Cody-only step (Settings → General → Default branch) and was not done from this session.
 Production deploy plan: Vercel Hobby tier, **branch `main`**, framework "Other", root `.`, no build command. Not yet imported into Vercel.
