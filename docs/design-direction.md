@@ -1,5 +1,11 @@
 # Miller Custom Works Design Direction
 
+> **Status note (2026-05-06):** This document captured the *first-draft* direction in early 2026. The site has since been substantially rebuilt — the section structure, color palette, and current visual rules now live in `../HANDOFF_FOR_NEXT_SESSION.md`. Read that first for the as-built state.
+>
+> What still applies from this doc: the strategic positioning (custom home improvements, third-generation craftsmanship), the hard guardrails (no Kentucky theming, no stock or AI visuals, no flag-heavy / patriotic-by-default treatment, no generic handyman template), and the voice direction (handmade, masculine, precise, practical, quietly heritage-driven).
+>
+> What has changed: the visual palette landed warm-walnut → caramel-cream rather than the earlier "warm wood + walnut + brass" mood-only sketch, the homepage is now a 6-slide deck with merged About + Contact, and the section-by-section content choices have been built and committed.
+
 ## Short version
 
 Build the first draft as a proof-first contractor site with a project page from day one. The current photos are not final portfolio assets, but they are strong enough to establish direction and create something Mark can react to. The site should make him think, “I have better pictures than that,” which is exactly the point: the draft should unlock better assets from him.
