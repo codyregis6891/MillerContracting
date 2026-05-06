@@ -1,3 +1,35 @@
+const navToggle = document.querySelector('.nav-toggle');
+const primaryNav = document.querySelector('.nav');
+if (navToggle && primaryNav) {
+  const setOpen = (open) => {
+    primaryNav.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  navToggle.addEventListener('click', () => setOpen(!primaryNav.classList.contains('is-open')));
+  primaryNav.querySelectorAll('.nav-links a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+  document.addEventListener('click', (event) => {
+    if (!primaryNav.classList.contains('is-open')) return;
+    if (primaryNav.contains(event.target)) return;
+    setOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && primaryNav.classList.contains('is-open')) setOpen(false);
+  });
+}
+
+document.querySelectorAll('[data-gallery-carousel]').forEach((carousel) => {
+  const grid = carousel.querySelector('.gallery-grid');
+  const prev = carousel.querySelector('[data-gallery-prev]');
+  const next = carousel.querySelector('[data-gallery-next]');
+  if (!grid) return;
+  const step = () => grid.clientWidth;
+  prev?.addEventListener('click', () => grid.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next?.addEventListener('click', () => grid.scrollBy({ left: step(), behavior: 'smooth' }));
+});
+
 const homepageDeck = document.querySelector('.deck-page .deck-main');
 
 if (homepageDeck) {

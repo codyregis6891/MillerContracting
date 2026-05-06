@@ -12,7 +12,8 @@
   <header class="site-header">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="index.html" aria-label="Miller Custom Works home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 72 48" role="img" focusable="false"><path class="mark-sun" d="M51 11a7 7 0 0 1 7 7"/><path class="mark-mountain" d="M6 34 23 16l11 12 8-9 24 25"/><path class="mark-ground" d="M8 38c10-4 20-4 31-1 8 2 15 1 25-3"/><path class="mark-tree" d="M18 34V20m0 0-7 8m7-8 7 8m-7-2-5 6m5-6 5 6M39 35V22m0 0-6 7m6-7 6 7m-6-2-4 5m4-5 4 5M54 35V24m0 0-5 6m5-6 5 6m-5-1-4 5m4-5 4 5"/></svg></span><span class="brand-wordmark" aria-hidden="true"><svg viewBox="0 0 330 42" role="img" focusable="false"><text x="2" y="29">Miller Custom Works</text><path d="M4 36c42-5 72-5 111-2 34 3 65 1 108-3 38-4 68-3 103 2"/></svg></span><span class="sr-only">Miller Custom Works</span></a>
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="primary-nav">
         <a href="projects/">Projects</a>
         <a href="projects/custom-wood-counters/">Featured Project</a>
         <a class="button-ghost" href="#contact">Call / Text</a>
@@ -22,25 +23,22 @@
 
   <main class="deck-main" aria-label="Miller Custom Works slideshow">
     <section class="hero deck-slide is-active" data-slide-label="Start">
-      <div class="container hero-grid">
-        <div class="hero-copy">
+      <img class="hero-photo" src="assets/images/mark-shop-work.jpg" alt="Mark working in his shop on a custom piece">
+      <div class="hero-frame container">
+        <div class="hero-headline">
           <p class="eyebrow">A Third Generation Craftsman</p>
           <h1>Built like the details matter.</h1>
+        </div>
+        <div class="hero-band">
           <div class="card-heritage" aria-label="Old business card language adapted for this draft">
             <strong>The finest in Repairs, Improvements and Beautification</strong>
             <p>Painting · Decorating · Woodworking · Home Improvements · Restorations</p>
           </div>
-          <p class="heritage-quote">“Time was when the beauty and finesse of crafts and trades were well acknowledged by the world... When imaginative creation mingled with fancy and wonder... In those days, all craftsmen were artists.”</p>
+          <div class="hero-actions">
+            <a class="button" href="projects/">See the work</a>
+            <a class="button-ghost" href="#contact">Start a conversation</a>
+          </div>
         </div>
-        <figure class="hero-card">
-          <img src="assets/images/wood-counter-sink-detail.jpg" alt="Finished custom wood kitchen counter viewed from the sink">
-          <figcaption class="hero-note">
-            <div class="hero-actions">
-              <a class="button" href="projects/">See the work</a>
-              <a class="button-ghost" href="#contact">Start a conversation</a>
-            </div>
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -67,6 +65,7 @@
               <div class="service-scene-copy">
                 <span>02 / Kitchens & built-ins</span>
                 <h3>Kitchens that feel complete.</h3>
+                <p>Cabinets, islands, surfaces, and built-in storage that work together as one finished room, not parts.</p>
               </div>
             </article>
             <article class="service-scene">
@@ -74,6 +73,7 @@
               <div class="service-scene-copy">
                 <span>03 / Home improvements</span>
                 <h3>Fit, finish, final walkthrough.</h3>
+                <p>Bathrooms, floors, doors, and trim work that leave the house looking better than it started.</p>
               </div>
             </article>
           </div>
@@ -125,35 +125,57 @@
 
     <section class="section quality-zag reel-panel deck-slide" data-slide-label="Craft" id="process">
       <div class="container quality-zag-stage">
-        <div class="quality-zag-photo" aria-label="Mark standing behind custom woodwork in the shop">
-          <img src="assets/images/mark-standing-behind-work.jpg" alt="Mark standing behind a large custom wood surface in the workshop">
-        </div>
-        <div class="quality-zag-story">
-          <p class="eyebrow">How the site should sell him</p>
-          <h2>Not fast and flashy. Measured, fitted, finished.</h2>
-          <p class="lede">The site should show that Mark is not selling commodity labor. He is selling judgment, patience, and the ability to make custom pieces belong in a real home.</p>
-        </div>
-        <div class="quality-zag-notes" aria-label="Craft proof principles">
-          <p><span>01 / Look close</span><strong>Details carry the trust.</strong> Edges, hardware, wood grain, shelves, counters, and fireplace work should get close-up treatment instead of hiding inside generic room photos.</p>
-          <p><span>02 / Range without scatter</span><strong>Three lanes keep it focused.</strong> Custom woodwork, kitchens and built-ins, and home improvements give enough range without turning the site into a catch-all handyman menu.</p>
-          <p><span>03 / Make Mark real</span><strong>The shop photo matters.</strong> A real working image does more for credibility than stock photos, badges, or over-written marketing language.</p>
-        </div>
-        <div class="quality-zag-line" aria-label="Before and after proof strips">
-          <div class="quality-proof quality-proof-room">
-            <span>01 / Fireplace wall</span>
-            <div class="quality-proof-photos">
-              <figure><img src="assets/images/living-room-before.jpg" alt="Before view of a living room fireplace wall before custom improvements"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/images/living-room-after.jpg" alt="After view of the living room with updated fireplace wall, built-ins, and finished flooring"><figcaption>After</figcaption></figure>
+        <aside class="quality-zag-side quality-zag-side-left" aria-label="Before and after: fireplace wall">
+          <span class="quality-zag-side-label">01 / Fireplace wall</span>
+          <figure>
+            <img src="assets/images/living-room-before.jpg" alt="Before view of a living room fireplace wall before custom improvements">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/living-room-after.jpg" alt="After view of the living room with updated fireplace wall, built-ins, and finished flooring">
+            <figcaption>After</figcaption>
+          </figure>
+        </aside>
+        <div class="quality-zag-feature">
+          <img class="quality-zag-feature-photo" src="assets/images/mark-standing-behind-work.jpg" alt="Mark standing behind a large custom wood surface in the workshop">
+          <div class="quality-zag-overlay">
+            <div class="quality-zag-overlay-top">
+              <p class="eyebrow">How the site should sell him</p>
+              <h2>Not fast and flashy. Measured, fitted, finished.</h2>
+            </div>
+            <div class="quality-zag-overlay-bottom">
+            <p class="lede">The site should show that Mark is not selling commodity labor. He is selling judgment, patience, and the ability to make custom pieces belong in a real home.</p>
+            <ol class="quality-zag-principles">
+              <li>
+                <span>01 / Look close</span>
+                <strong>Details carry the trust.</strong>
+                <p>Edges, hardware, wood grain, shelves, counters, and fireplace work get close-up treatment instead of hiding inside generic room photos.</p>
+              </li>
+              <li>
+                <span>02 / Range without scatter</span>
+                <strong>Three lanes keep it focused.</strong>
+                <p>Custom woodwork, kitchens and built-ins, and home improvements give enough range without turning the site into a catch-all handyman menu.</p>
+              </li>
+              <li>
+                <span>03 / Make Mark real</span>
+                <strong>The shop photo matters.</strong>
+                <p>A real working image does more for credibility than stock photos, badges, or over-written marketing language.</p>
+              </li>
+            </ol>
             </div>
           </div>
-          <div class="quality-proof quality-proof-kitchen">
-            <span>02 / Kitchen finish</span>
-            <div class="quality-proof-photos">
-              <figure><img src="assets/images/kitchen-remodel-before.jpg" alt="Before view of an older kitchen with oak cabinets and tile countertops"><figcaption>Before</figcaption></figure>
-              <figure><img src="assets/images/kitchen-remodel-after.jpg" alt="After view of the kitchen with updated cabinets, surfaces, backsplash, and appliances"><figcaption>After</figcaption></figure>
-            </div>
-          </div>
         </div>
+        <aside class="quality-zag-side quality-zag-side-right" aria-label="Before and after: kitchen finish">
+          <span class="quality-zag-side-label">02 / Kitchen finish</span>
+          <figure>
+            <img src="assets/images/kitchen-remodel-before.jpg" alt="Before view of an older kitchen with oak cabinets and tile countertops">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/kitchen-remodel-after.jpg" alt="After view of the kitchen with updated cabinets, surfaces, backsplash, and appliances">
+            <figcaption>After</figcaption>
+          </figure>
+        </aside>
       </div>
     </section>
 
@@ -164,53 +186,54 @@
             <p class="eyebrow">Project gallery</p>
             <h2>A first proof wall for better project stories.</h2>
           </div>
-          <p class="lede">The Projects page is already included. Tomorrow's job is not deciding whether we need one. It is deciding which projects deserve full pages once Mark supplies the better originals.</p>
+          <a class="button-ghost gallery-link" href="projects/">Open the project page</a>
         </div>
+        <div class="gallery-carousel" data-gallery-carousel>
+        <button class="gallery-nav gallery-prev" type="button" aria-label="Previous photo" data-gallery-prev>‹</button>
+        <button class="gallery-nav gallery-next" type="button" aria-label="Next photo" data-gallery-next>›</button>
         <div class="gallery-grid">
-          <img src="assets/images/finished-kitchen-builtins.jpg" alt="Finished kitchen cabinetry and built-ins">
-          <img src="assets/images/barn-door-wood-ceiling.jpg" alt="Rustic sliding barn door and wood ceiling">
-          <img src="assets/images/finished-fireplace-room.jpg" alt="Finished fireplace room">
+          <img src="assets/images/wood-counter-island.jpg" alt="Wood counter island detail">
+          <img src="assets/images/interior-builtins-flooring.jpg" alt="Interior built-ins and finished flooring">
+          <img src="assets/images/kitchen-wood-counters.jpg" alt="Custom wood kitchen counters">
+          <img src="assets/images/white-kitchen-remodel.jpg" alt="White kitchen remodel">
+          <img src="assets/images/long-wood-countertop.jpg" alt="Long custom wood countertop">
+          <img src="assets/images/vanity-cabinet-detail.jpg" alt="Vanity cabinet detail">
+          <img src="assets/images/large-exterior-deck.jpg" alt="Large exterior deck">
+          <img src="assets/images/rustic-stone-fireplace.jpg" alt="Rustic stone fireplace">
+          <img src="assets/images/built-in-fireplace-shelving.jpg" alt="Built-in fireplace shelving">
+          <img src="assets/images/built-in-media-center.jpg" alt="Built-in media center">
           <img src="assets/images/custom-wood-table.jpg" alt="Custom finished wood table">
+          <img src="assets/images/vertical-wood-fence.jpg" alt="Vertical wood fence detail">
+          <img src="assets/images/sliding-barn-door.jpg" alt="Sliding barn door detail">
           <img src="assets/images/bathroom-vanity-remodel.jpg" alt="Bathroom vanity remodel">
           <img src="assets/images/wood-gate-hardware.jpg" alt="Wood gate with black hardware">
-          <img src="assets/images/sliding-barn-door.jpg" alt="White sliding barn door detail">
-          <img src="assets/images/flag-display-case.jpg" alt="Custom flag display case">
         </div>
-        <p style="margin-top: 28px;"><a class="button-ghost" href="projects/">Open the project page</a></p>
+        </div>
       </div>
     </section>
 
-    <section class="section-tight reel-panel deck-slide" data-slide-label="About" id="about">
+    <section class="section reel-panel deck-slide" data-slide-label="Get in Touch" id="contact">
       <div class="container about-grid">
-        <div>
+        <div class="about-text">
           <p class="eyebrow">About Mark</p>
           <h2>Third-generation craftsmanship, kept practical.</h2>
           <p class="lede">This is draft copy until Mark confirms the exact story. The point is to make the site feel owned by a real craftsman, not a faceless contracting template.</p>
+          <p class="quote heritage-quote">“Time was when the beauty and finesse of crafts and trades were well acknowledged by the world... When imaginative creation mingled with fancy and wonder... In those days, all craftsmen were artists.”</p>
         </div>
-        <div class="about-panel">
-          <p class="quote">“The work should fit the house, hold up over time, and look like somebody cared while building it.”</p>
-          <p>Placeholder voice line. Replace with Mark's real words once he reacts to the first draft.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reel-panel deck-slide" data-slide-label="Contact" id="contact">
-      <div class="container contact-grid">
-        <div>
-          <p class="eyebrow">Start here</p>
+        <div class="contact-column">
           <h2>Have a project that needs a craftsman's eye?</h2>
           <p class="lede">Send a few photos, describe what you want changed, and Mark can tell you whether it is the kind of work Miller Custom Works should look at.</p>
+          <aside class="contact-card">
+            <h3>Contact placeholder</h3>
+            <p>Use Mark's real preferred phone, text, and email here. For the draft, this intentionally stays generic.</p>
+            <div class="contact-lines">
+              <span><b>Phone</b> <em>(555) 555-5555</em></span>
+              <span><b>Email</b> <em>hello@example.com</em></span>
+              <span><b>Area</b> <em>Service area to confirm</em></span>
+            </div>
+            <a class="button-dark" href="mailto:hello@example.com">Ask about a project</a>
+          </aside>
         </div>
-        <aside class="contact-card">
-          <h3>Contact placeholder</h3>
-          <p>Use Mark's real preferred phone, text, and email here. For the draft, this intentionally stays generic.</p>
-          <div class="contact-lines">
-            <span><b>Phone</b> <em>(555) 555-5555</em></span>
-            <span><b>Email</b> <em>hello@example.com</em></span>
-            <span><b>Area</b> <em>Service area to confirm</em></span>
-          </div>
-          <a class="button-dark" href="mailto:hello@example.com">Ask about a project</a>
-        </aside>
       </div>
     </section>
     </div>
@@ -224,7 +247,7 @@
   <footer class="footer">
     <div class="container">
       <span>© <span id="year"></span> Miller Custom Works</span>
-      <span>First draft built from available project proof. Replace placeholders before launch.</span>
+      <span>Site handcrafted by <a href="https://glasswaterdigital.com">Glass Water Digital</a>.</span>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
