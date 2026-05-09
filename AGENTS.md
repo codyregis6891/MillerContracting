@@ -21,7 +21,7 @@ Do not treat this as an unrelated hobby repo. Treat it as a Glass Water Digital 
 - Default branch (working): `develop`. **Production branch: `main`** — Vercel deploys from here. Standard Git-Flow convention: develop = staging/work, main = production/stable.
 - Production deploy: Vercel Hobby (free tier) under Cody's account, deploying from `main`.
 - Current draft is intentionally proof-first and built from real intake photos, not stock or AI visuals
-- Latest commit (origin/develop = origin/main): `b5eeef6 docs: refresh handoff for the homepage rewrite + mobile redesign`
+- Latest known remote state: `origin/main` is the deploy branch; `origin/develop` is the working branch. As of 2026-05-08, Mark has not seen the site yet; Cody plans to show it at the next family dinner.
 
 The draft should help Mark react, correct facts, and send better photos. It does not need to pretend all content is final.
 
@@ -110,7 +110,7 @@ http://127.0.0.1:4173/
 Do not redesign first. Review the draft as an operator artifact, then tighten the weak spots that will matter to Mark:
 
 1. Verify homepage, projects index, and custom wood counters project page in browser.
-2. Make a short Mark review checklist, including contact path, services wanted/avoided, license/insurance wording, and photo replacements.
+2. Make/use a short Mark review checklist for the family-dinner review, including contact path, services wanted/avoided, license/insurance wording, and photo replacements.
 3. If improving the site before showing it, focus on obvious polish, mobile readability, broken links, and placeholder clarity.
 4. After Mark reacts, replace weak images and confirm services before expanding project pages or adding deployment machinery.
 

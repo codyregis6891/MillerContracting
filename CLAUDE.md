@@ -51,14 +51,24 @@ Take the same practical, proof-first stance Hermes would take here: keep the dra
   - what is still local-only
   - what the next agent should read first
 
-### After every `git push`
+### Before `git push` — handoff discipline
 
-A push is not "done" until the state docs catch up with it. Immediately after every successful `git push` from this repo, update **all** of the following that are affected, before reporting the push complete to Cody:
+A push is not "done" until the state docs reflect it. **Before** running `git push` from this repo, ensure the push range includes a handoff update. The pre-push hook hard-blocks pushes that don't.
 
-1. `../_handoffs/2026-05-01-new-terminal-handoff.md` — bump the `origin/main` SHA in the Miller Custom Works status block and add a dated subsection describing what shipped, what was verified, and what was not. Always touch this file on every push, even small ones.
-2. This repo's own `HANDOFF_FOR_NEXT_SESSION.md` and any design-direction or status doc the push affects.
+Standard flow:
+
+1. Make and commit your code changes.
+2. Note the new HEAD: `git rev-parse HEAD`.
+3. Update **both** of the following:
+   - `../_handoffs/HANDOFF.md` — bump the `origin/main` SHA in the Miller Custom Works status block and add a dated subsection describing what shipped, what was verified, and what was not. (Umbrella file, lives outside this git repo — hook can't enforce, update it manually.)
+   - This repo's own `HANDOFF_FOR_NEXT_SESSION.md`. Pre-push hook requires this to appear in the push range.
+4. Also update design-direction / status docs the push affects.
+5. Commit the handoff bump: `git add HANDOFF_FOR_NEXT_SESSION.md … && git commit -m "docs: update handoff"`.
+6. `git push` — pre-push hook validates.
 
 See the umbrella `../CLAUDE.md` "Handoff discipline" section for the canonical rule.
+
+**Enforcement:** `scripts/hooks/pre-push` (active via `core.hooksPath = scripts/hooks`) hard-blocks any push whose range does not modify `HANDOFF_FOR_NEXT_SESSION.md`. Override with `SKIP_HANDOFF_CHECK=1 git push` for genuine no-state-change pushes. Do not casually use `--no-verify` — it bypasses every hook, not just this one.
 
 ## Validation
 

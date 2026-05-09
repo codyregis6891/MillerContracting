@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# Pre-push hook: block push unless at least one handoff file was updated in the push range.
+#
+# Why: Hermes / Claude / Codex read the handoff at session start. A push without a
+# handoff bump leaves the next session reading stale state.
+#
+# Note: the umbrella ../​_handoffs/HANDOFF.md lives outside this git repo and cannot
+# be enforced by this hook. Update it as well per CLAUDE.md "After every git push".
+#
+# Override (for genuine no-state-change pushes — typo fixes, doc-only commits that
+# ARE the handoff update, etc.):
+#   SKIP_HANDOFF_CHECK=1 git push
+#   git push --no-verify
+
+set -uo pipefail
+
+if [[ "${SKIP_HANDOFF_CHECK:-}" == "1" ]]; then
+  echo "[pre-push] SKIP_HANDOFF_CHECK=1 — handoff check skipped." >&2
+  exit 0
+fi
+
+# Any one of these being modified in the push range satisfies the check.
+HANDOFFS=("HANDOFF_FOR_NEXT_SESSION.md")
+
+zero="0000000000000000000000000000000000000000"
+fail=0
+errors=()
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [[ "$local_sha" == "$zero" ]] && continue
+
+  if [[ "$remote_sha" == "$zero" ]]; then
+    oldest=$(git rev-list "$local_sha" --not --remotes 2>/dev/null | tail -1)
+    if [[ -z "$oldest" ]]; then
+      continue
+    fi
+    if git rev-parse "${oldest}^" >/dev/null 2>&1; then
+      diff_range="${oldest}^..$local_sha"
+    else
+      diff_range="$local_sha"
+    fi
+  else
+    diff_range="$remote_sha..$local_sha"
+  fi
+
+  if ! git rev-list "$diff_range" 2>/dev/null | grep -q .; then
+    continue
+  fi
+
+  changed=$(git diff --name-only "$diff_range" 2>/dev/null || true)
+
+  matched=0
+  for h in "${HANDOFFS[@]}"; do
+    if echo "$changed" | grep -qFx "$h"; then
+      matched=1
+      break
+    fi
+  done
+
+  if [[ "$matched" -eq 0 ]]; then
+    errors+=("$local_ref → $remote_ref  (range: $diff_range)")
+    fail=1
+  fi
+done
+
+if [[ "$fail" -eq 1 ]]; then
+  {
+    echo ""
+    echo "════════════════════════════════════════════════════════════════"
+    echo " PUSH BLOCKED — handoff file not updated in this push."
+    echo "────────────────────────────────────────────────────────────────"
+    echo " Required (any one of these in the push range):"
+    for h in "${HANDOFFS[@]}"; do
+      echo "   • $h"
+    done
+    echo ""
+    echo " Don't forget the umbrella handoff (not enforced here, but required):"
+    echo "   • ../_handoffs/HANDOFF.md"
+    echo ""
+    echo " Affected refs:"
+    for err in "${errors[@]}"; do
+      echo "   ✗ $err"
+    done
+    echo ""
+    echo " Fix:"
+    echo "   1. Edit the handoff(s) with what shipped (SHA, what was verified, what was not)."
+    echo "   2. git add <handoff> && git commit -m 'docs: update handoff'"
+    echo "   3. git push"
+    echo ""
+    echo " Override:"
+    echo "   SKIP_HANDOFF_CHECK=1 git push        # one-off"
+    echo "   git push --no-verify                 # bypasses all hooks"
+    echo "════════════════════════════════════════════════════════════════"
+  } >&2
+  exit 1
+fi
+
+exit 0

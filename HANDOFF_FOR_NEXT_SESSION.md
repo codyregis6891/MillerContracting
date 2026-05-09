@@ -4,10 +4,22 @@ Date prepared: 2026-05-06
 Prepared for: Cody opening a new terminal/Hermes session
 Primary repo: `/home/codyregis/projects/glass-water/MillerContracting`
 Umbrella project: Glass Water Digital
-Current SHA: origin/main `f52875d`, origin/develop `f54267c` (develop ahead of main by one doc-only commit refreshing `mark-review-checklist.md` and `docs/design-direction.md`)
+Current SHA: origin/main `f52875d`, origin/develop `777f816` (develop ahead of main with Mark-review docs, design-direction/handoff updates, favicon recolor, and GWD footer-link repoint)
 Default branch (working): **`develop`**. **Production branch: `main`** — Vercel deploys from there. Standard Git-Flow convention.
 GitHub repo default-branch flip from `main` → `develop` is a one-click Cody-only step (Settings → General → Default branch) and was not done from this session.
-Production deploy plan: Vercel Hobby tier, **branch `main`**, framework "Other", root `.`, no build command. Not yet imported into Vercel.
+Production deploy: Vercel Hobby tier, **branch `main`**, framework "Other", root `.`, no build command — hooked up the same way as Glass Water Digital. `main` is the deployable/live branch; `develop` remains the working branch.
+
+Repo status note from 2026-05-08: a pre-push handoff-discipline hook was installed today across all three Cody repos (`sector-rotation-system`, `glass-water-digital`, `MillerContracting`). For Miller specifically:
+
+- `scripts/hooks/pre-push` (versioned) hard-blocks any push whose range does not modify `HANDOFF_FOR_NEXT_SESSION.md`.
+- `git config --local core.hooksPath scripts/hooks` activates it (re-run on fresh clones).
+- `CLAUDE.md` "Before `git push`" section was reframed (was "after push update", now "before push, ensure handoff is in the push range") so agents flow with the hook rather than against it.
+- Override: `SKIP_HANDOFF_CHECK=1 git push` for genuine no-state-change pushes. Don't use `--no-verify` casually.
+- Umbrella `../_handoffs/HANDOFF.md` is not enforced by the hook (lives outside this git repo); still required per `CLAUDE.md`.
+
+This is the same pattern Glass Water Digital and the financial hub now use, so opening Hermes/Claude/Codex in any of them gets the same handoff-sync behavior.
+
+Mark has **not** seen the site yet. Cody plans to show it at the next family dinner, so the next business move is still to collect Mark's reactions rather than redesigning in isolation.
 
 ## Current status
 
@@ -109,7 +121,7 @@ Full diff: `git show 3c427f7 --stat`.
 
 ## Recommended next moves
 
-1. **Send Mark the live URL** — the original brief was to put the draft in front of him for reaction. That's the highest-leverage next move now. The site is in a much better state than the previous draft.
+1. **Show Mark the site at the next family dinner** — he has not seen it yet. The original brief was to put the draft in front of him for reaction; that's still the highest-leverage next move now. The site is in a much better state than the previous draft and is deployable from `main`.
 2. **Replace placeholder copy with Mark's words** — heritage pull-quote on Section 6, contact info (phone/email/service area), license/insurance wording. The placeholders are intentionally generic and waiting on real input.
 3. **Re-photo passes** — Mark probably has better originals than the Facebook-era photos. Section 5 gallery (15 photos), Section 3 fireplace project, Section 4 Mark-in-shop photo are the highest-value swap targets.
 4. **DNS for `glasswaterdigital.com` and `www.glasswaterdigital.com`** — last QA showed they didn't resolve from this machine. Worth verifying separately.
