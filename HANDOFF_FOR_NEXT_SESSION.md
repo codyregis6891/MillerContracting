@@ -19,6 +19,8 @@ Repo status note from 2026-05-08: a pre-push handoff-discipline hook was install
 
 This is the same pattern Glass Water Digital and the financial hub now use, so opening Hermes/Claude/Codex in any of them gets the same handoff-sync behavior.
 
+Follow-up later 2026-05-08: `CLAUDE.md` "Before `git push`" section was tightened to require post-state tense, an explicit SHA bump via `$(git rev-parse HEAD)`, and reconciliation of any historical statements the new change contradicts. The hook checks *that* the handoff was modified, not *that* the content matches reality — SR caught a real instance of that gap and the lesson was propagated here, to the umbrella, and to glass-water-digital.
+
 Mark has **not** seen the site yet. Cody plans to show it at the next family dinner, so the next business move is still to collect Mark's reactions rather than redesigning in isolation.
 
 ## Current status

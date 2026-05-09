@@ -58,17 +58,20 @@ A push is not "done" until the state docs reflect it. **Before** running `git pu
 Standard flow:
 
 1. Make and commit your code changes.
-2. Note the new HEAD: `git rev-parse HEAD`.
+2. Note the new HEAD: `SHA=$(git rev-parse HEAD)`.
 3. Update **both** of the following:
-   - `../_handoffs/HANDOFF.md` — bump the `origin/main` SHA in the Miller Custom Works status block and add a dated subsection describing what shipped, what was verified, and what was not. (Umbrella file, lives outside this git repo — hook can't enforce, update it manually.)
+   - `../_handoffs/HANDOFF.md` — bump the `origin/main` (or `origin/develop`) SHA to `$SHA` in the Miller Custom Works status block and add a dated subsection describing what shipped, what was verified, and what was not. **Write in post-state tense** — "Pushed at `<SHA>`. Shipped X." — not "local commit, not yet pushed" or "until pushed." (Umbrella file, lives outside this git repo — hook can't enforce, update it manually.)
    - This repo's own `HANDOFF_FOR_NEXT_SESSION.md`. Pre-push hook requires this to appear in the push range.
-4. Also update design-direction / status docs the push affects.
-5. Commit the handoff bump: `git add HANDOFF_FOR_NEXT_SESSION.md … && git commit -m "docs: update handoff"`.
-6. `git push` — pre-push hook validates.
+4. Reconcile any historical statements either file contains that the new change contradicts.
+5. Also update design-direction / status docs the push affects.
+6. Commit the handoff bump: `git add HANDOFF_FOR_NEXT_SESSION.md … && git commit -m "docs: update handoff"`.
+7. `git push` — pre-push hook validates.
 
 See the umbrella `../CLAUDE.md` "Handoff discipline" section for the canonical rule.
 
 **Enforcement:** `scripts/hooks/pre-push` (active via `core.hooksPath = scripts/hooks`) hard-blocks any push whose range does not modify `HANDOFF_FOR_NEXT_SESSION.md`. Override with `SKIP_HANDOFF_CHECK=1 git push` for genuine no-state-change pushes. Do not casually use `--no-verify` — it bypasses every hook, not just this one.
+
+**The hook checks _that_ the handoff was modified — not _that_ the content matches reality.** Touching the file with stale "local-only" text or an outdated SHA will pass the hook and defeat the rule. Post-state tense + correct SHA + contradiction-reconciliation is the actual sync mechanism.
 
 ## Validation
 
