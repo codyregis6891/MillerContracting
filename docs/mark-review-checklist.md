@@ -132,14 +132,29 @@ Only after the conversation, choose the next move:
 3. Confirm the contact CTA path (call vs text vs form).
 4. Build out the next 2-3 strongest project detail pages.
 5. Domain decision — he picks a registrar (or uses Cody's account during beta), and Cody handles the DNS.
-6. Decide whether this is ready for full public deployment or stays at the Vercel preview URL until Phase 7 placeholder fill is complete.
+6. Decide whether this is ready for full public deployment or stays at the Vercel preview URL until placeholder facts and photos are cleaned up.
 
-## 10. Glass Water beta terms reminder
+## 10. Contractor search / dogfood checklist
 
-If the conversation lands on "what's this costing me" — the answer is: free during beta. In exchange, Mark agrees to:
+After Mark gives feedback and the real facts are confirmed, apply the Glass Water search method in contractor form. The goal is not SEO theater. The goal is to give Google, maps, the website, and AI assistants enough clear proof to understand when Miller Custom Works is a relevant local result.
+
+Do not add any of this until the facts are real:
+
+- **Service-area clarity:** town/county/radius language Mark approves; no fake address or overbroad region claims.
+- **Service clarity:** the work Mark wants more of should be named plainly in headings, page titles, project copy, alt text, and contact prompts.
+- **Project proof:** build project pages around real jobs, better photos, town-level location only, materials, problem solved, and finished result.
+- **Review/trust signals:** add testimonials, review prompts, license/insurance wording, and credibility claims only if Mark confirms them word-for-word.
+- **Crawlability:** verify `/`, `/projects/`, and project pages are reachable with normal links, useful titles/descriptions, and no accidental noindex behavior.
+- **Image alt text:** describe the actual work shown, not vague labels or keyword stuffing.
+- **Structured data:** use valid contractor/local-business schema only when facts are public and stable. `HomeAndConstructionBusiness` may fit the final positioning, but do not invent phone/address/hours/reviews/ratings/license data to fill schema.
+- **Opportunity surface:** after the site is public, check whether search/AI systems have enough consistent information to understand what Miller Custom Works does and where it works.
+
+## 11. Glass Water beta terms reminder
+
+If the conversation lands on "what's this costing me" — the answer is: free during beta, with no public pricing promise made on Mark's site. In exchange, Mark agrees to:
 
 - Send replacement photos and copy when he can.
-- Give Cody a testimonial for the Glass Water case-study artifact (one quote, name, hometown).
-- Let Cody use the site as a reference / example when pitching other contractors.
+- Give Cody a testimonial for the Glass Water case-study artifact if he is comfortable doing so after the site is useful.
+- Let Cody use the site as a reference / example when pitching other contractors, if Mark approves the final public version.
 
-Domain + ongoing hosting are paid by Mark (or Cody covers them during beta if Cody chooses). After beta: Foundation slot at $149/mo or $79/mo basic-support tier. The come-back fee policy from the Glass Water business plan applies if he leaves and returns.
+Domain + ongoing hosting should be decided separately once Mark confirms whether he wants a public domain. Any future paid support should use the current Glass Water pricing source of truth, not old support-tier notes in this checklist.
