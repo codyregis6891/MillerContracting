@@ -1,10 +1,10 @@
 # Handoff for Next Terminal Session
 
-Date prepared: 2026-05-06
+Date prepared: 2026-05-16
 Prepared for: Cody opening a new terminal/Hermes session
 Primary repo: `/home/codyregis/projects/glass-water/MillerContracting`
 Umbrella project: Glass Water Digital
-Current SHA: origin/main `f52875d`, origin/develop `777f816` (develop ahead of main with Mark-review docs, design-direction/handoff updates, favicon recolor, and GWD footer-link repoint)
+Current SHA: origin/main `f52875d`, origin/develop `7e30529`. Re-check with `git status --short --branch` and `git rev-parse --short HEAD` before acting.
 Default branch (working): **`develop`**. **Production branch: `main`** — Vercel deploys from there. Standard Git-Flow convention.
 GitHub repo default-branch flip from `main` → `develop` is a one-click Cody-only step (Settings → General → Default branch) and was not done from this session.
 Production deploy: Vercel Hobby tier, **branch `main`**, framework "Other", root `.`, no build command — hooked up the same way as Glass Water Digital. `main` is the deployable/live branch; `develop` remains the working branch.
@@ -21,7 +21,7 @@ This is the same pattern Glass Water Digital and the financial hub now use, so o
 
 Follow-up later 2026-05-08: `CLAUDE.md` "Before `git push`" section was tightened to require post-state tense, an explicit SHA bump via `$(git rev-parse HEAD)`, and reconciliation of any historical statements the new change contradicts. The hook checks *that* the handoff was modified, not *that* the content matches reality — SR caught a real instance of that gap and the lesson was propagated here, to the umbrella, and to glass-water-digital.
 
-Mark has **not** seen the site yet. Cody plans to show it at the next family dinner, so the next business move is still to collect Mark's reactions rather than redesigning in isolation.
+Cody showed the site to Mark on 2026-05-16 and feedback is expected soon. The next business move is to collect Mark's reactions before doing more UI/design work. Do not spend another Miller UI pass before feedback lands.
 
 ## Current status
 
@@ -123,11 +123,13 @@ Full diff: `git show 3c427f7 --stat`.
 
 ## Recommended next moves
 
-1. **Show Mark the site at the next family dinner** — he has not seen it yet. The original brief was to put the draft in front of him for reaction; that's still the highest-leverage next move now. The site is in a much better state than the previous draft and is deployable from `main`.
-2. **Replace placeholder copy with Mark's words** — heritage pull-quote on Section 6, contact info (phone/email/service area), license/insurance wording. The placeholders are intentionally generic and waiting on real input.
-3. **Re-photo passes** — Mark probably has better originals than the Facebook-era photos. Section 5 gallery (15 photos), Section 3 fireplace project, Section 4 Mark-in-shop photo are the highest-value swap targets.
-4. **DNS for `glasswaterdigital.com` and `www.glasswaterdigital.com`** — last QA showed they didn't resolve from this machine. Worth verifying separately.
-5. **Custom domain for Miller** — site is currently only at the GitHub Pages / Vercel URL (or wherever it's deployed). If Mark wants a real URL, that's a separate setup.
+1. **Wait for Mark's feedback before UI work** — Cody showed Mark the site on 2026-05-16. The next move is to capture his reaction, not redesign in isolation.
+2. **Collect the missing real facts** — contact path, phone/email preference, service area, services wanted/avoided, license/insurance wording if any, preferred wording for his craft story, and whether he wants exterior/deck/fence work featured.
+3. **Replace placeholder copy with Mark's words** — heritage pull-quote on Section 6, contact details, service preferences, and any credibility claims must come from Mark.
+4. **Re-photo passes after feedback** — Mark probably has better originals than the Facebook-era photos. Section 5 gallery (15 photos), Section 3 fireplace project, Section 4 Mark-in-shop photo are the highest-value swap targets.
+5. **Apply Glass Water search/dogfood lessons after feedback** — contractor-specific cleanup only: service-area clarity, project/location/service detail, real proof photos, review/trust signals, crawlable pages, image alt text, and contractor-appropriate structured data such as `HomeAndConstructionBusiness` if valid for the final positioning. Do not add fake phone/address/hours/license/reviews/schema facts.
+6. **DNS for `glasswaterdigital.com` and `www.glasswaterdigital.com`** — last QA showed they didn't resolve from this machine. Worth verifying separately.
+7. **Custom domain for Miller** — site is currently only at the GitHub Pages / Vercel URL (or wherever it's deployed). If Mark wants a real URL, that's a separate setup.
 
 ## Glass Water operator read
 

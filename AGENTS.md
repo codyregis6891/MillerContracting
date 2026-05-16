@@ -21,7 +21,7 @@ Do not treat this as an unrelated hobby repo. Treat it as a Glass Water Digital 
 - Default branch (working): `develop`. **Production branch: `main`** — Vercel deploys from here. Standard Git-Flow convention: develop = staging/work, main = production/stable.
 - Production deploy: Vercel Hobby (free tier) under Cody's account, deploying from `main`.
 - Current draft is intentionally proof-first and built from real intake photos, not stock or AI visuals
-- Latest known remote state: `origin/main` is the deploy branch; `origin/develop` is the working branch. As of 2026-05-08, Mark has not seen the site yet; Cody plans to show it at the next family dinner.
+- Latest known remote state: `origin/main` is the deploy branch; `origin/develop` is the working branch. As of 2026-05-16, Cody has shown Mark the site and feedback is expected soon. Wait for Mark's reaction before starting another UI pass.
 
 The draft should help Mark react, correct facts, and send better photos. It does not need to pretend all content is final.
 
@@ -107,12 +107,12 @@ http://127.0.0.1:4173/
 
 ## Next best move
 
-Do not redesign first. Review the draft as an operator artifact, then tighten the weak spots that will matter to Mark:
+Do not redesign first. Mark has now seen the site, so the next move is to collect and apply real feedback rather than guessing.
 
-1. Verify homepage, projects index, and custom wood counters project page in browser.
-2. Make/use a short Mark review checklist for the family-dinner review, including contact path, services wanted/avoided, license/insurance wording, and photo replacements.
-3. If improving the site before showing it, focus on obvious polish, mobile readability, broken links, and placeholder clarity.
-4. After Mark reacts, replace weak images and confirm services before expanding project pages or adding deployment machinery.
+1. Capture Mark's reaction: what felt right, what felt wrong, what work he wants more of, what work he does not want featured, and what contact path he wants public.
+2. Confirm real business facts before changing claims: phone/email, service area, license/insurance wording if any, project facts, review/testimonial availability, and photo replacements.
+3. After feedback lands, apply Glass Water's search/dogfood lessons in contractor form: crawlable service/project detail, local/service-area clarity, real proof photos, review/trust signals, image alt text, and valid contractor/local-business schema. Do not invent facts to fill schema.
+4. If improving the site before feedback for any reason, limit it to broken links, obvious mobile readability bugs, placeholder clarity, and validation failures.
 
 ## Validation
 
